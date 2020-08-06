@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.BufferedReader;
-import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -36,7 +35,7 @@ public class MyTest {
 	        String json = stringBuilder.toString();
 	        List<Student> students = gson.fromJson(json, new TypeToken<List<Student>>(){}.getType());
 	        //String s = stringBuilder.toString();
-	        Assert.assertEquals(students.get(0).getName(), "Thanh");
+	        Assert.assertEquals(students.get(0).getStudentName(), "Thanh");
 	        
 	    } catch (MalformedURLException e) {
 	        e.printStackTrace();

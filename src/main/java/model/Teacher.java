@@ -1,7 +1,5 @@
 package model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-
 import javax.persistence.*;
 
 /**
@@ -15,8 +13,9 @@ public class Teacher {
     private int id;
 
     @Column
-    private String name;
-
+    private String teacherName;
+    private String teacherAddress;
+    private String teacherPhone;
 
     public Teacher() {
     }
@@ -29,11 +28,27 @@ public class Teacher {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTeacherName() {
+        return teacherName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTeacherName(String name) {
+        this.teacherName = name;
+    }
+
+    public String getTeacherAddress() {
+        return teacherAddress;
+    }
+
+    public void setTeacherAddress(String teacherAddress) {
+        this.teacherAddress = teacherAddress;
+    }
+
+    public String getTeacherPhone() {
+        return teacherPhone;
+    }
+
+    public void setTeacherPhone(String teacherPhone) {
+        this.teacherPhone = teacherPhone;
     }
 }
