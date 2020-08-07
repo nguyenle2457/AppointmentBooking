@@ -1,63 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Appointment Booking Service</title>
+</head>
+
+
+<body>
+
+<!--// main body begins here-->
 <h2>Add new student</h2>
-Name: <input type="text" id="name"/>
-<button onclick="add()">Add</button>
+Name: <input type="text" id="student"/>
+<button type="button" class="btn btn-primary" onclick="addStudent()">Add</button>
 
 <h2>List of students</h2>
 <div id="studentList"></div>
 
-<script>
+<h2>Add new customer</h2>
 
-getStudents()
-
-
-    function add(){ //post
-
-      var name = document.getElementById('name').value //get value from an html element
-
-     fetch('http://localhost:8080/students', {
-             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-             },
-             method: "POST",
-             body: JSON.stringify({name: name})
-
-     }).then(res => getStudents())
+<form action="">
+    <lablel for="CName">Name:</lablel>
+    <input type="text" class="form-control" id="customerName" required/>
+    <lablel for="CAddress">Address:</lablel>
+    <input type="text" class="form-control" id="customerAddress" required/>
+    <lablel for="CPhone">Contact:</lablel>
+    <input type="text" class="form-control" id="customerPhone" required/>
+    <button type="button" class="btn btn-primary" onclick="addCustomer()">Add</button>
+</form>
 
 
-        console.log('Added')
-    }
-
-    function getStudents(){
-
-        var studentList = document.getElementById('studentList')
-
-        studentList.innerHTML = ''
-
-        fetch('http://localhost:8080/students')
-        .then(res => res.json())
-        .then(json => {
-
-            for(i=0; i<json.length; i++){
-
-                var id = json[i].id
-
-                var deleteLink = `<button onclick='deleteStudent(${id})'>Delete</button>`
-
-               studentList.innerHTML += '<div>'+ json[i].name + deleteLink + '</div>'
-
-            }
-
-        })
-
-    }
+<h2>List of teachers</h2>
+<div id="customerList"></div>
 
 
-    function deleteStudent(id){
-          fetch('http://localhost:8080/students/'+id, {
-            method: 'delete'
-          })
-          .then(res=> getStudents())
-    }
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 
-</script>
+
+<!--//loading javascript in a separate file-->
+<script src="js/script.js"></script>
+</body>
+</html>
