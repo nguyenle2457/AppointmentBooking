@@ -51,36 +51,36 @@ function deleteStudent(id) {
         .then(res => getStudents())
 }
 
-getTeachers()
+getCustomers()
 
-function addTeacher() { //post
-    var name = document.getElementById('teacherName').value //get value from an html element
-    var address = document.getElementById('teacherAddress').value
-    var phone = document.getElementById('teacherPhone').value
+function addCustomer() { //post
+    var name = document.getElementById('customerName').value //get value from an html element
+    var address = document.getElementById('customerAddress').value
+    var phone = document.getElementById('customerPhone').value
 
     if (name != '' && address != '' && phone != '') {
-        fetch('http://localhost:8080/teachers', {
+        fetch('http://localhost:8080/customers', {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             method: "POST",
-            body: JSON.stringify({teacherName: name, teacherAddress: address, teacherPhone: phone})
+            body: JSON.stringify({customerName: name, customerAddress: address, customerPhone: phone})
 
-        }).then(res => getTeachers())
+        }).then(res => getCustomers())
 
 
         console.log('Added')
     }
 }
 
-function getTeachers() {
+function getCustomers() {
 
-    var teacherList = document.getElementById('teacherList')
+    var customerList = document.getElementById('customerList')
 
-    teacherList.innerHTML = ''
+    customerList.innerHTML = ''
 
-    fetch('http://localhost:8080/teachers')
+    fetch('http://localhost:8080/customers')
         .then(res => res.json())
         .then(json => {
 
@@ -88,9 +88,9 @@ function getTeachers() {
 
                 var id = json[i].id
 
-                var deleteLink = `<button onclick='deleteTeacher(${id})'>Delete</button>`
+                var deleteLink = `<button onclick='deleteCustomer(${id})'>Delete</button>`
 
-                teacherList.innerHTML += '<div>' + json[i].teacherName + ' ' + json[i].teacherAddress + ' ' + json[i].teacherPhone + deleteLink + '</div>'
+                customerList.innerHTML += '<div>' + json[i].customerName + ' ' + json[i].customerAddress + ' ' + json[i].customerPhone + deleteLink + '</div>'
 
             }
 
@@ -99,9 +99,9 @@ function getTeachers() {
 }
 
 
-function deleteTeacher(id) {
-    fetch('http://localhost:8080/teachers/' + id, {
+function deleteCustomer(id) {
+    fetch('http://localhost:8080/customers/' + id, {
         method: 'delete'
     })
-        .then(res => getTeachers())
+        .then(res => getCustomers())
 }
