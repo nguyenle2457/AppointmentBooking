@@ -1,3 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Appointment Booking Service</title>
+</head>
+<body>
+
 <h2>Add new student</h2>
 Name: <input type="text" id="student"/>
 <button onclick="addStudent()">Add</button>
@@ -6,122 +17,133 @@ Name: <input type="text" id="student"/>
 <div id="studentList"></div>
 
 <h2>Add new teacher</h2>
-Name: <input type="text" id="teacherName"/>
-Address: <input type="text" id="teacherAddress"/>
-Phone: <input type="text" id="teacherPhone"/>
-<button onclick="addTeacher()">Add</button>
+
+<form action="">
+    <lablel for="TName">Name:</lablel>
+    <input type="text" id="teacherName" required/>
+    <lablel for="TAddress">Address:</lablel>
+    <input type="text" id="teacherAddress" required/>
+    <lablel for="TPhone">Contact:</lablel>
+    <input type="text" id="teacherPhone" required/>
+    <button onclick="addTeacher()">Add</button>
+</form>
+
 
 <h2>List of teachers</h2>
 <div id="teacherList"></div>
 
+</body>
+</html>
+
 <script>
 
-getStudents()
+    getStudents()
 
 
-    function addStudent(){ //post
+    function addStudent() { //post
 
-      var name = document.getElementById('student').value //get value from an html element
+        var name = document.getElementById('student').value //get value from an html element
 
-     fetch('http://localhost:8080/students', {
-             headers: {
+        fetch('http://localhost:8080/students', {
+            headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-             },
-             method: "POST",
-             body: JSON.stringify({studentName: name})
+            },
+            method: "POST",
+            body: JSON.stringify({studentName: name})
 
-     }).then(res => getStudents())
+        }).then(res => getStudents())
 
 
         console.log('Added')
     }
 
-    function getStudents(){
+    function getStudents() {
 
         var studentList = document.getElementById('studentList')
 
         studentList.innerHTML = ''
 
         fetch('http://localhost:8080/students')
-        .then(res => res.json())
-        .then(json => {
+            .then(res => res.json())
+            .then(json => {
 
-            for(i=0; i<json.length; i++){
+                for (i = 0; i < json.length; i++) {
 
-                var id = json[i].id
+                    var id = json[i].id
 
-                var deleteLink = `<button onclick='deleteStudent(${id})'>Delete</button>`
+                    var deleteLink = `<button onclick='deleteStudent(${id})'>Delete</button>`
 
-               studentList.innerHTML += '<div>'+ json[i].studentName + deleteLink + '</div>'
+                    studentList.innerHTML += '<div>' + json[i].studentName + deleteLink + '</div>'
 
-            }
+                }
 
-        })
+            })
 
     }
 
 
-    function deleteStudent(id){
-          fetch('http://localhost:8080/students/'+id, {
+    function deleteStudent(id) {
+        fetch('http://localhost:8080/students/' + id, {
             method: 'delete'
-          })
-          .then(res=> getStudents())
+        })
+            .then(res => getStudents())
     }
 
-getTeachers()
+    getTeachers()
 
-function addTeacher(){ //post
+    function addTeacher() { //post
+        var name = document.getElementById('teacherName').value //get value from an html element
+        var address = document.getElementById('teacherAddress').value
+        var phone = document.getElementById('teacherPhone').value
 
-    var name = document.getElementById('teacherName').value //get value from an html element
-    var address = document.getElementById('teacherAddress').value
-    var phone = document.getElementById('teacherPhone').value
+        if (name != '' && address != '' && phone != '') {
+            fetch('http://localhost:8080/teachers', {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify({teacherName: name, teacherAddress: address, teacherPhone: phone})
 
-    fetch('http://localhost:8080/teachers', {
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        method: "POST",
-        body: JSON.stringify({teacherName: name, teacherAddress : address, teacherPhone: phone})
-
-    }).then(res => getTeachers())
+            }).then(res => getTeachers())
 
 
-    console.log('Added')
-}
+            console.log('Added')
+        }
+    }
 
-function getTeachers(){
+    function getTeachers() {
 
-    var teacherList = document.getElementById('teacherList')
+        var teacherList = document.getElementById('teacherList')
 
-    teacherList.innerHTML = ''
+        teacherList.innerHTML = ''
 
-    fetch('http://localhost:8080/teachers')
-        .then(res => res.json())
-        .then(json => {
+        fetch('http://localhost:8080/teachers')
+            .then(res => res.json())
+            .then(json => {
 
-            for(i=0; i<json.length; i++){
+                for (i = 0; i < json.length; i++) {
 
-                var id = json[i].id
+                    var id = json[i].id
 
-                var deleteLink = `<button onclick='deleteTeacher(${id})'>Delete</button>`
+                    var deleteLink = `<button onclick='deleteTeacher(${id})'>Delete</button>`
 
-                teacherList.innerHTML += '<div>'+ json[i].teacherName + ' ' + json[i].teacherAddress + ' ' + json[i].teacherPhone + deleteLink + '</div>'
+                    teacherList.innerHTML += '<div>' + json[i].teacherName + ' ' + json[i].teacherAddress + ' ' + json[i].teacherPhone + deleteLink + '</div>'
 
-            }
+                }
 
+            })
+
+    }
+
+
+    function deleteTeacher(id) {
+        fetch('http://localhost:8080/teachers/' + id, {
+            method: 'delete'
         })
-
-}
-
-
-function deleteTeacher(id){
-    fetch('http://localhost:8080/teachers/'+id, {
-        method: 'delete'
-    })
-        .then(res=> getTeachers())
-}
+            .then(res => getTeachers())
+    }
 
 
 </script>
