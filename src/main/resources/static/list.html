@@ -26,7 +26,7 @@
 
 <!--<h2>Add new customer</h2>-->
 
-<div class="container-fluid">
+<div class="container">
     <form>
         <div class="form-group row">
             <lablel for="CName" class="col-sm-1 col-form-label">Name:</lablel>
@@ -50,12 +50,10 @@
             </div>
         </div>
         <input class="btn btn-primary" type="button" onclick="addCustomer()" value="Add"/>
-
-
+        <input class="btn btn-primary" type="button" onclick="jsonToTable();getCustomers()" value="Update Table"/>
     </form>
     <div class="container">
         <h2 style="text-align: center">List of customers</h2>
-        <input class="btn btn-primary" type="button" onclick="jsonToTable();getCustomers()" value="Update Table"/>
         <p id="showData"></p>
         <div id="customerList"></div>
 
