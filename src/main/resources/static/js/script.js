@@ -96,7 +96,7 @@ function getCustomers() {
 
                 var deleteLink = `<button onclick='deleteCustomer(${id})'>Delete</button>`
 
-                customerList.innerHTML += '<div>' + customer[i].customerName + ' ' + customer[i].customerAddress + ' ' + customer[i].customerPhone + deleteLink + '</div>'
+                customerList.innerHTML += '<div>' + customer[i].customerName + `       ` + customer[i].customerAddress + `       ` + customer[i].customerPhone + deleteLink + '</div>'
 
             }
 
