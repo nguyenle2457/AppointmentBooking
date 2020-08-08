@@ -22,7 +22,7 @@ function jsonToTable() {
             var table = document.createElement("table");
             table.className = "table table-striped";
             // this loop is for strictly headers and omitting the first 8 characters
-            // to generate the meaningful names
+            // of the class properties to make the names meaningful
             var tHeader = [];
             for (var i = 0; i < customer.length; i++) {
                 for (var key in customer[i]) {
