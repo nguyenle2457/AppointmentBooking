@@ -14,6 +14,7 @@ function jsonToTable() {
             var col = [];
             for (var i = 0; i < customer.length; i++) {
                 for (var key in customer[i]) {
+                    console.log(key)
                     if (col.indexOf(key) === -1) {
                         col.push(key);
                     }
