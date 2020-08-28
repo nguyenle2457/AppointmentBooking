@@ -18,9 +18,13 @@ public class Customer {
     private String customerName;
     private String customerAddress;
     private String customerPhone;
+    private String bookingTime;
 
     public Customer() {
     }
+    public String getBookingTime() {return bookingTime;}
+
+    public void setBookingTime(String bookingTime) { this.bookingTime = bookingTime; }
 
     public int getId() {
         return id;
