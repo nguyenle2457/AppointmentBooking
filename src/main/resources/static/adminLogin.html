@@ -72,7 +72,7 @@
              style="text-align: center;position: fixed; bottom: 35%; right: 25%; width: 30px; border: none;">
             <button type="Register" class="btn btn-default"
                     style="background-color:#81b214; border-style:none;color:white"
-                    onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Register.html?_ijt=84sm544of9261ihltcnnhjica1')>
+                    onclick=window.location.replace('http://localhost:8080/static//Register.html')>
                 Register
             </button>
         </div>
@@ -83,7 +83,7 @@
 <div class="form-group"
      style="text-align: center;color:white; position: fixed; bottom: 35%; right: 33%; width: 200px; border: none;">
     <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white"
-            onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=v5n26neh6sflfglpe9jd8hd7t4')>
+            onclick=window.location.replace('http://localhost:8080/static/Login.html')>
         Login
     </button>
 </div>
@@ -105,7 +105,7 @@
                     if (json[i].username === username &&
                         json[i].password === SHA1(password)) {
                         alert("Administrative Authentication successful. You will now be redirected to the customer database.")
-                        window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/list.html?_ijt=v5n26neh6sflfglpe9jd8hd7t4')
+                        window.location.replace('http://localhost:8080/static/list.html')
                         verified = true
                         return
 

@@ -12,11 +12,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/8e646d4d3b.js" crossorigin="anonymous"></script>
     <style>
-        .btn:hover {
+        .btn:hover{
             background-color: red;
         }
-
-        .btn {
+        .btn{
             border: 2px solid black;
             text-align: center;
         }
@@ -32,62 +31,51 @@
     </i>
 </div>
 <!-- Body container -->
-<div class="container-fluid">
-    <div class="container row" style="margin-left: auto;
+<div class="container-fluid" >
+    <div class = "container row" style="margin-left: auto;
     margin-right: auto; margin-top: 10%">
+        <!-- Defines the login field -->
         <div class="container-fluid col-sm-6">
-            <h1 style="text-align: center; vertical-align: middle;color:white; font-family: 'Allerta', Helvetica, Arial, sans-serif; font-size: 50px; line-height: 55px;">
+            <h1 style= "text-align: center; vertical-align: middle;color:white; font-family: 'Allerta', Helvetica, Arial, sans-serif; font-size: 50px; line-height: 55px;">
                 Welcome To Demeter Finances
             </h1>
-            <h2>
-                First Online Bank of Viet Name
-            </h2>
         </div>
-        <div class="container-fluid col-sm-6"
-             style="border: solid 2px floralwhite;background-color: #007D9D; border-radius: 5px; ">
+        <div class="container-fluid col-sm-6" style="border: solid 2px floralwhite;background-color: #007D9D; border-radius: 5px; ">
 
-            <h1 style="text-align: center;color:white; font-family: 'Allerta', Helvetica, Arial, sans-serif;font-size: 30px;line-height: 30px;padding-top: 20px">
-                Login </h1>
+            <h1 style="text-align: center;color:white; font-family: 'Allerta', Helvetica, Arial, sans-serif;font-size: 30px;line-height: 30px;padding-top: 20px"> Login </h1>
             <!-- Username -->
-            <div class="form-group">
+            <div class="form-group" >
                 <label for="username" style="color:white">Username:</label>
-                <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username" >
             </div>
             <div class="form-group">
                 <label for="password" style="color:white">Password:</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" name="password">
             </div>
 
-            <div class="form-group" style="text-align: center;">
-                <button type="submit" class="btn btn-default"
-                        style="background-color:#81b214;border-style:none;  color:white" onclick="verifyLogin()">Login
-                </button>
+            <div class="form-group"  style="text-align: center;">
+                <button type="submit" class="btn btn-default" style="background-color:#81b214;border-style:none;  color:white" onclick="verifyLogin()">Login</button>
             </div>
 
 
             <!--     Button to return to registration page       -->
         </div>
-        <div class="form-group"
-             style="text-align: center;position: fixed; bottom: 35%; right: 25%; width: 30px; border: none;">
-            <button type="Register" class="btn btn-default"
-                    style="background-color:#81b214; border-style:none;color:white"
-                    onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Register.html?_ijt=84sm544of9261ihltcnnhjica1')>
-                Register
-            </button>
+        <div class="form-group" style="text-align: center;position: fixed; bottom: 35%; right: 25%; width: 30px; border: none;">
+            <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white" onclick=window.location.replace('http://localhost:8080/static/Register.html')>Register</button>
         </div>
     </div>
 
 </div>
 
 <div class="form-group" style="text-align: center;color:white; position: fixed; bottom: 35%; right: 33%; width: 200px; border: none;">
-    <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/adminLogin.html?_ijt=a3p5sdrtnf40e8ql25842apm9')>Admin Login</button>
+    <button type="Register" class="btn btn-default" style="background-color:#81b214; border-style:none;color:white" onclick=window.location.replace('http://localhost:8080/static/adminLogin.html')>Admin Login</button>
 </div>
 
 </body>
 
 <script>
 
-    function verifyLogin() {
+    function verifyLogin(){
         let username = document.getElementById("username").value
         let password = document.getElementById("password").value
         let verified = false
@@ -96,19 +84,17 @@
             .then(res => res.json())
             .then(json => {
                 console.log(json)
-                for (let i = 0; i < json.length; i++) {
+                for(let i=0; i<json.length; i++){
                     if (json[i].username === username &&
-                        json[i].password === SHA1(password)) {
+                        json[i].password === SHA1(password) ){
                         alert("Authentication successful. You will now be redirected to the main page.")
-                        window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Status.html?_ijt=o38vv6hah5g0dhnnrqf3pdm1af')
+                        window.location.replace('http://localhost:8080/static/Status.html')
                         verified = true
                         return
 
                     }
                 }
-            }).then(res => {
-            if (!verified) alert("Authentication failed. Invalid username or password.")
-        })
+            }).then(res => { if(!verified) alert("Authentication failed. Invalid username or password.")})
     }
 
     // reference: http://www.webtoolkit.info/javascript_sha1.html#.X0DwBcgzbZs

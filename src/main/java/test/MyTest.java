@@ -22,7 +22,7 @@ public class MyTest {
 	public void test1() throws IOException {
 
 		try{
-			URL url = new URL(TestConfig.URL+"customers");
+			URL url = new URL(TestConfig.URL+"customer");
 			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 			String line = "";
@@ -48,7 +48,7 @@ public class MyTest {
 	public void test2() throws IOException {
 
 		try{
-			URL url = new URL(TestConfig.URL+"customers");
+			URL url = new URL(TestConfig.URL+"customer");
 			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 			String line = "";
@@ -74,7 +74,7 @@ public class MyTest {
 	public void test3() throws IOException {
 
 		try{
-			URL url = new URL(TestConfig.URL+"customers");
+			URL url = new URL(TestConfig.URL+"customer");
 			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 			String line = "";
@@ -100,7 +100,7 @@ public class MyTest {
 	public void test4() throws IOException {
 
 		try{
-			URL url = new URL(TestConfig.URL+"customers");
+			URL url = new URL(TestConfig.URL+"customer");
 			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 			String line = "";
@@ -126,7 +126,7 @@ public class MyTest {
 	public void test5() throws IOException {
 
 		try{
-			URL url = new URL(TestConfig.URL+"customers");
+			URL url = new URL(TestConfig.URL+"customer");
 			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 			String line = "";
@@ -152,7 +152,7 @@ public class MyTest {
 	public void test6() throws IOException {
 
 		try{
-			URL url = new URL(TestConfig.URL+"customers");
+			URL url = new URL(TestConfig.URL+"customer");
 			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 			String line = "";
@@ -178,7 +178,7 @@ public class MyTest {
 	public void test7() throws IOException {
 
 		try{
-			URL url = new URL(TestConfig.URL+"customers");
+			URL url = new URL(TestConfig.URL+"customer");
 			HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
 			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
 			String line = "";
