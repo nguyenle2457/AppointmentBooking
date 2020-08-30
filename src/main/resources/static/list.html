@@ -10,34 +10,60 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Appointment Booking Service</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 
 <body>
 
 <!--// main body begins here-->
-<h2>Add new student</h2>
-Name: <input type="text" id="student"/>
-<button type="button" class="btn btn-primary" onclick="addStudent()">Add</button>
+<!--<h2>Add new student</h2>-->
+<!--Name: <input type="text" id="student"/>-->
+<!--<button type="button" class="btn btn-prim   ary" onclick="addStudent()">Add</button>-->
 
-<h2>List of students</h2>
-<div id="studentList"></div>
+<!--<h2>List of students</h2>-->
+<!--<div id="studentList"></div>-->
 
-<h2>Add new customer</h2>
+<!--<h2>Add new customer</h2>-->
 
-<form action="">
-    <lablel for="CName">Name:</lablel>
-    <input type="text" class="form-control" id="customerName" required/>
-    <lablel for="CAddress">Address:</lablel>
-    <input type="text" class="form-control" id="customerAddress" required/>
-    <lablel for="CPhone">Contact:</lablel>
-    <input type="text" class="form-control" id="customerPhone" required/>
-    <button type="button" class="btn btn-primary" onclick="addCustomer()">Add</button>
-</form>
+<div class="container">
+    <form>
+        <div class="form-group row">
+            <lablel for="CName" class="col-sm-1 col-form-label">Name:</lablel>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Please provide your full name" id="customerName"
+                       required/>
+            </div>
+        </div>
+<!--Address Field-->
+        <div class="form-group row">
+            <lablel for="CAddress" class="col-sm-1 col-form-label">Address:</lablel>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Provide address as detailed as you can"
+                       id="customerAddress" required/>
+            </div>
+        </div>
+<!--Contact Field-->
+        <div class="form-group row">
+            <lablel for="CPhone" class="col-sm-1 col-form-label">Contact:</lablel>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Enter your phone number here" id="customerPhone"
+                       required/>
+            </div>
+        </div>
+<!--Adds customer to the database-->
+        <input class="btn btn-primary" type="button" onclick="addCustomer()" value="Add"/>
+<!--        "updates" table from the webpage-->
+        <input class="btn btn-primary" type="button" onclick="jsonToTable();getCustomers()" value="Update Table"/>
+    </form>
+    Customer table
+    <div class="container">
+        <h2 style="text-align: center">List of customers</h2>
+        <p id="showData"></p>
+        <div id="customerList"></div>
 
-
-<h2>List of teachers</h2>
-<div id="customerList"></div>
+    </div>
+</div>
 
 
 <!-- Optional JavaScript -->
@@ -52,7 +78,10 @@ Name: <input type="text" id="student"/>
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
-
+<div class="form-group" style="text-align: center;">
+    <button type="Login" class="btn btn-default" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=4gs2rtimk0llo44411n4c3p5mf')>Login</button>
+</div>
+</div>
 <!--//loading javascript in a separate file-->
 <script src="js/script.js"></script>
 </body>
