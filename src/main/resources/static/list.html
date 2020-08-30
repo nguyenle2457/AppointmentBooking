@@ -46,7 +46,7 @@
         <!--Adds customer to the database-->
         <input class="btn btn-primary" type="button" onclick="window.location.reload();addCustomer()" value="Add"/>
         <!--force update table from the webpage-->
-        <input class="btn btn-primary" type="button" onclick="window.location.reload();jsonToTable" value="Update Table"/>
+        <input class="btn btn-primary" type="button" onclick="window.location.reload();jsonCustomer()" value="Update Table"/>
     </form>
     <div class="container">
         <h2 style="text-align: center">List of customers</h2>
@@ -64,7 +64,12 @@
     <div class="form-group" style="text-align: center;">
         <input class="btn btn-primary" type="button" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=4gs2rtimk0llo44411n4c3p5mf') value="Login"/>
     </div>
-</div>
+    <div class="container">
+        <h2 style="text-align: center">List of services</h2>
+        <p id="showData"></p>
+        <div id="serviceList"></div>
+
+    </div>
 </div>
 
 

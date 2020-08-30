@@ -1,12 +1,9 @@
 package controller;
 
 import model.Customer;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.servlet.ModelAndView;
-import service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import service.CustomerService;
 
 import java.util.List;
 
@@ -44,5 +41,5 @@ public class CustomerController {
     public void updateCustomer(@PathVariable int id, @RequestBody Customer customer){
         customerService.updateCustomer(id, customer);
     }
-    
+
 }
