@@ -18,8 +18,8 @@ function jsonToTable() {
                 var id = object.id
 
                 // creating delete and update buttons with attached ID to local variables
-                var editLink = `<button class='refresher' onclick='updateCustomer(${id})' >Edit</button>`
-                var deleteLink = `<button class='refresher' onclick='deleteCustomer(${id})' >Delete</button>`
+                var editLink = `<button class='refresher' onclick='window.location.reload();updateCustomer(${id})' >Edit</button>`
+                var deleteLink = `<button class='refresher' onclick='window.location.reload();deleteCustomer(${id})' >Delete</button>`
 
                 // adding content to table row
                 tr.innerHTML = '<td>' + object.customerName + '</td>' +

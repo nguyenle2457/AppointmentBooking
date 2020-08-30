@@ -44,9 +44,9 @@
             </div>
         </div>
         <!--Adds customer to the database-->
-        <input class="btn btn-primary" type="button" onclick="addCustomer()" value="Add"/>
+        <input class="btn btn-primary" type="button" onclick="window.location.reload();addCustomer()" value="Add"/>
         <!--force update table from the webpage-->
-        <input class="btn btn-primary" type="button" onclick="jsonToTable();getCustomers()" value="Update Table"/>
+        <input class="btn btn-primary" type="button" onclick="window.location.reload();jsonToTable" value="Update Table"/>
     </form>
     <div class="container">
         <h2 style="text-align: center">List of customers</h2>
