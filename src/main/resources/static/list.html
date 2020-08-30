@@ -9,22 +9,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
     <title>Appointment Booking Service</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src=https://code.jquery.com/jquery-1.11.3.min.js></script>
 </head>
 
 
 <body>
-
-<!--// main body begins here-->
-<!--<h2>Add new student</h2>-->
-<!--Name: <input type="text" id="student"/>-->
-<!--<button type="button" class="btn btn-prim   ary" onclick="addStudent()">Add</button>-->
-
-<!--<h2>List of students</h2>-->
-<!--<div id="studentList"></div>-->
-
-<!--<h2>Add new customer</h2>-->
 
 <div class="container">
     <form>
@@ -35,7 +27,7 @@
                        required/>
             </div>
         </div>
-<!--Address Field-->
+        <!--Address Field-->
         <div class="form-group row">
             <lablel for="CAddress" class="col-sm-1 col-form-label">Address:</lablel>
             <div class="col-sm-10">
@@ -43,7 +35,7 @@
                        id="customerAddress" required/>
             </div>
         </div>
-<!--Contact Field-->
+        <!--Contact Field-->
         <div class="form-group row">
             <lablel for="CPhone" class="col-sm-1 col-form-label">Contact:</lablel>
             <div class="col-sm-10">
@@ -51,18 +43,28 @@
                        required/>
             </div>
         </div>
-<!--Adds customer to the database-->
+        <!--Adds customer to the database-->
         <input class="btn btn-primary" type="button" onclick="addCustomer()" value="Add"/>
-<!--        "updates" table from the webpage-->
+        <!--force update table from the webpage-->
         <input class="btn btn-primary" type="button" onclick="jsonToTable();getCustomers()" value="Update Table"/>
     </form>
-    Customer table
     <div class="container">
         <h2 style="text-align: center">List of customers</h2>
-        <p id="showData"></p>
-        <div id="customerList"></div>
-
+        <table class="table table-striped" id="table">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </table>
     </div>
+
+    <div class="form-group" style="text-align: center;">
+        <input class="btn btn-primary" type="button" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=4gs2rtimk0llo44411n4c3p5mf') value="Login"/>
+    </div>
+</div>
 </div>
 
 
@@ -78,11 +80,9 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
-<div class="form-group" style="text-align: center;">
-    <button type="Login" class="btn btn-default" onclick=window.location.replace('http://localhost:63342/SampleHibernateSpringMVC/static/Login.html?_ijt=4gs2rtimk0llo44411n4c3p5mf')>Login</button>
-</div>
-</div>
+
 <!--//loading javascript in a separate file-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
 <script src="js/script.js"></script>
 </body>
 </html>

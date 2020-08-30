@@ -8,12 +8,11 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import service.StudentService;
 
-import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
@@ -22,7 +21,7 @@ import java.util.Properties;
 @Configuration
 @EnableTransactionManagement
 @EnableWebMvc
-@ComponentScan({"controller", "service"})
+@ComponentScan({"controller", "service",})
 public class AppConfig extends WebMvcConfigurerAdapter {
 
     @Override
@@ -31,9 +30,8 @@ public class AppConfig extends WebMvcConfigurerAdapter {
                 .addResourceLocations("/WEB-INF/classes/static/");
     }
 
-
     @Bean
-    public LocalSessionFactoryBean sessionFactory(){
+    public LocalSessionFactoryBean sessionFactory() {
 
         Properties properties = new Properties();
         //For Postgresql
@@ -60,7 +58,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory){
+    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
         HibernateTransactionManager tx = new HibernateTransactionManager(sessionFactory);
         return tx;
     }
