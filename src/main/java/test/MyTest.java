@@ -34,8 +34,8 @@ public class MyTest {
 
 			Gson gson = new Gson();
 			String json = stringBuilder.toString();
-			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
-			Assert.assertEquals(customers.get(0).getCustomerName(), "Nguyen Van A");
+			List<Customer> customer = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customer.get(0).getCustomerName(), "Nguyen Van A");
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -60,8 +60,8 @@ public class MyTest {
 
 			Gson gson = new Gson();
 			String json = stringBuilder.toString();
-			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
-			Assert.assertEquals(customers.get(0).getCustomerAddress(), "702 Nguyen Van Linh");
+			List<Customer> customer = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customer.get(0).getCustomerAddress(), "702 Nguyen Van Linh");
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -86,8 +86,8 @@ public class MyTest {
 
 			Gson gson = new Gson();
 			String json = stringBuilder.toString();
-			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
-			Assert.assertEquals(customers.get(0).getCustomerPhone(), "0912345678");
+			List<Customer> customer = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customer.get(0).getCustomerPhone(), "0912345678");
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -112,8 +112,8 @@ public class MyTest {
 
 			Gson gson = new Gson();
 			String json = stringBuilder.toString();
-			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
-			Assert.assertEquals(customers.get(0).getUsername(), "Alex123");
+			List<Customer> customer = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customer.get(0).getUsername(), "Alex123");
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -138,8 +138,8 @@ public class MyTest {
 
 			Gson gson = new Gson();
 			String json = stringBuilder.toString();
-			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
-			Assert.assertEquals(customers.get(0).getPassword(), "123");
+			List<Customer> customer = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customer.get(0).getPassword(), "123");
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -164,8 +164,8 @@ public class MyTest {
 
 			Gson gson = new Gson();
 			String json = stringBuilder.toString();
-			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
-			Assert.assertEquals(customers.get(0).getService(), "General Banking");
+			List<Customer> customer = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customer.get(0).getService(), "General Banking");
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -190,8 +190,8 @@ public class MyTest {
 
 			Gson gson = new Gson();
 			String json = stringBuilder.toString();
-			List<Customer> customers = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
-			Assert.assertEquals(customers.get(0).getBookingTime(), "7:00");
+			List<Customer> customer = gson.fromJson(json, new TypeToken<List<Customer>>(){}.getType());
+			Assert.assertEquals(customer.get(0).getBookingTime(), "7:00");
 
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
