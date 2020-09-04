@@ -1,2 +1,11 @@
 language: java
 os: linux
+services:
+  - postgresql
+
+before_script:
+  - psql -c "CREATE DATABASE postgres;" -U postgres
+  - psql -c "CREATE USER postgres WITH PASSWORD 'admin';" -U postgres
+
+script:
+  - mvn clean verify
